@@ -55,8 +55,7 @@ def bitopro_restful_test():
     order_id = ""
 
     # [POST] Create an order
-    create_order_response = bitopro_client.create_an_order(action="BUY", amount=0.0001, price=10500, pair=pair)
-    if create_order_response is not None:
+    if (create_order_response := bitopro_client.create_an_order(action="BUY", amount=0.0001, price=10500, pair=pair)) is not None:
         order_id = create_order_response["orderId"]
     print("Order created:", create_order_response)
     
