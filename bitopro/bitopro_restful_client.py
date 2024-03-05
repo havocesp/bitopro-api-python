@@ -80,7 +80,7 @@ class BitoproRestfulClient(object):
        https://github.com/bitoex/bitopro-offical-api-docs/blob/master/v3-1/rest-1/open/currencies.md
        :return: the list of currencies
        """
-       endpoint = f"/provisioning/currencies" 
+       endpoint = "/provisioning/currencies" 
        complete_url = self.baseUrl + endpoint
        return self.send_request(method="GET", url=complete_url)
     
@@ -89,7 +89,7 @@ class BitoproRestfulClient(object):
        https://github.com/bitoex/bitopro-offical-api-docs/blob/master/v3-1/rest-1/open/lims-fees.md
        :return: the limitations and fees
        """
-       endpoint = f"/provisioning/limitations-and-fees" 
+       endpoint = "/provisioning/limitations-and-fees" 
        complete_url = self.baseUrl + endpoint
        return self.send_request(method="GET", url=complete_url)
     
@@ -152,7 +152,7 @@ class BitoproRestfulClient(object):
        https://github.com/bitoex/bitopro-offical-api-docs/blob/master/v3-1/rest-1/open/trading-pairs.md
        :return: a list of pairs available for trade
        """
-       endpoint = f"/provisioning/trading-pairs" 
+       endpoint = "/provisioning/trading-pairs" 
        complete_url = self.baseUrl + endpoint
        return self.send_request(method="GET", url=complete_url)
     
@@ -202,7 +202,7 @@ class BitoproRestfulClient(object):
         :send a json format request to cancel multiple orders at a time.
         :example: {"BTC_USDT": ["12234566","12234567"],"ETH_USDT": ["44566712","24552212"]}
         """
-        endpoint = f"/orders/"
+        endpoint = "/orders/"
         complete_url = self.baseUrl + endpoint
         headers = build_headers(self.__api_key, self.__api_secret, params=orders_request)
         return self.send_request("PUT", complete_url, headers=headers, data=orders_request)
@@ -261,7 +261,7 @@ class BitoproRestfulClient(object):
             }
         ]
         """
-        endpoint = f"/orders/batch"
+        endpoint = "/orders/batch"
         complete_url = self.baseUrl + endpoint
         headers = build_headers(self.__api_key, self.__api_secret, params=orders_request)
         return self.send_request(method="POST", url=complete_url, headers=headers, data=orders_request)
